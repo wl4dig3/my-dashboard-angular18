@@ -32,10 +32,16 @@ export const routes: Routes = [
         loadComponent: () => import('./dasboard/pages/view-transition/view-transition.component'),
       },
       {
-        path: 'users',
-        title: 'Users',
+        path: 'users-list',
+        title: 'Users List',
         loadComponent: () => import('./dasboard/pages/users/users.component'),
       },
+      {
+        path: 'user/:id',
+        title: 'User View ',
+        loadComponent: () => import('./dasboard/pages/user/user.component'),
+      },
+      {path: '', redirectTo: 'control-flow', pathMatch: 'full'},
     ],
   },
   {
