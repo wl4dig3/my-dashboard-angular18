@@ -1,11 +1,66 @@
-<section class="grid grid-cols-1 md:grid-cols-2 gap-3">
-    <div class="bg-white rounded shadow p-10">
+<section class="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div class="bg-white rounded shadow p-10 w-100">
         <h2>if: {{ showContent() }}</h2>
-        <button class="btn btn-primary mt-5 rounded bg-blue-500 text-white px-3" (click)="toggleContent()">Toggle</button>
+        <button class="btn btn-primary mt-5 rounded bg-blue-500 text-white px-3"
+            (click)="toggleContent()">Toggle</button>
         @if(showContent()){
-            <p class="mt-6">Hola nenas!!!</p>
+        <p class="mt-6">Hola nenas!!!</p>
         }@else {
-            <p class="mt-6">*********</p>
+        <p class="mt-6">*********</p>
         }
     </div>
+
+    <div class="bg-white rounded shadow p-10">
+        <h2>{{grade()}}</h2>
+
+        @switch (grade()) {
+        @case ('A')
+        {
+        <p class="mt-6">Excelente</p>
+
+        }
+        @case ('B') {
+
+        <p class="mt-6">Bueno</p>
+        }
+        @case ('C') {
+
+        <p class="mt-6">Regular</p>
+        }
+        @case ('D') {
+
+        <p class="mt-6">Malo</p>
+        }
+        @default {
+
+        <p class="mt-6">Sin calificacion</p>
+        }
+        }
+
+    </div>
+    <div class="bg-white rounded shadow p-10">
+        <h2>Frameworks</h2>
+        <ul>
+            @for (framework of frameworks(); track framework; let i = $index, last = $last, first = $first, even =
+            $even, odd =
+            $odd, count = $count) 
+            {
+            <li class="mt-2 {{even ? 'bg-gray-200' : 'bg-blue-200'}}">{{i + 1}}/{{count}} {{framework}}</li>
+            }
+        </ul>
+
+    </div>
+    <div class="bg-white rounded shadow p-10">
+        <h2>Frameworks 2</h2>
+        <ul>
+            @for (framework of frameworks2(); track $index) {
+
+            <li class="mt-2">{{framework}}</li>
+            }@empty {
+            <li class="mt-2">No hay frameworks en la lista</li>
+            }
+        </ul>
+
+    </div>
+
 </section>
