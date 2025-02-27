@@ -1,1 +1,30 @@
-<p>defer-options works!</p>
+<app-title title="Defer Triggers Options" />
+
+<section>
+
+    <h1 class="text-xl">Interacciones</h1>
+    <hr class="my-4">
+    @defer (on interaction) {
+        <app-heavy-loaders-fast cssClass="bg-blue-500 h-30">
+            <span>Interacciones</span>
+        </app-heavy-loaders-fast>
+
+    }@placeholder {
+        <div class="w-full h-30 bg-purple-100">Click en el div...</div>
+    }
+</section>
+
+<section>
+<button #btnInteraction class="btn btn-primary hover:bg-blue-600 my-5 py-2 px-3 rounded bg-blue-400 text-white px-3"
+>Toggle
+</button>
+
+    @defer (on interaction(btnInteraction)) {
+        <app-heavy-loaders-fast cssClass="bg-green-300 h-30">
+            <span class="pl-6">Interacciones</span>
+        </app-heavy-loaders-fast>
+
+    }@placeholder {
+        <div class="w-full h-30 bg-purple-100 text-center">Boton interaction...</div>
+    }
+</section>
