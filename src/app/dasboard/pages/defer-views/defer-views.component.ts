@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
+import { ListadoProductosComponent } from './listado-productos.component';
 
 @Component({
-  imports: [],
+  imports: [ ListadoProductosComponent ],
   templateUrl: './defer-views.component.html',
   styles: ``
 })
