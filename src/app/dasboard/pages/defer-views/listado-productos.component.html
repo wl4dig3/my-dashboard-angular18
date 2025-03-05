@@ -1,56 +1,76 @@
-<section class="bg-white rounded shadow p-10">
-    <p class="text-center mb-5 fw-bold amarillo">{{getMostrarTitulo}}</p>
-<ul>
-    @for( producto of listado(); track $index; let i= $index) {
-        <li class="text-center">{{i+1}}.- Descripción: {{producto.Descripcion}},   Precio: ${{producto.Precio}}</li>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <section class="bg-white rounded shadow p-10">
+        <p class="text-center mb-5 fw-bold amarillo">{{getMostrarTitulo}}</p>
+        <ul>
+            @for( producto of listado(); track $index; let i= $index) {
+            <li class="text-center">{{i+1}}.- Descripción: {{producto.Descripcion}}, Precio: ${{producto.Precio}}</li>
 
-    } @empty {
-        <li>!! No hay productos en la lista</li>
-    }
-</ul>
-</section>
+            } @empty {
+            <li>!! No hay productos en la lista</li>
+            }
+        </ul>
+    </section>
 
-<section>
-    <button class="btn btn-primary hover:bg-blue-600 mr-3 my-5 py-2 px-3 rounded bg-blue-400 text-white px-3"
-        (click)="showMessage()">Cambiar Titulo</button>
+    <section>
+        <button class="btn btn-primary hover:bg-blue-600 mr-3 my-5 py-2 px-3 rounded bg-blue-400 text-white px-3"
+            (click)="showMessage()">Cambiar Titulo</button>
 
-    <button (click)="resetarMessage()" class="btn btn-primary hover:bg-green-600 my-5 py-2 px-3 rounded bg-green-300 text-white px-3">Resetar Mensaje</button>
-    <div class="h-10 mt-4 mx-auto border-2 rounded border-green-500 text-center" role="alert">{{message}}</div>
-</section>
+        <button (click)="resetarMessage()"
+            class="btn btn-primary hover:bg-green-600 my-5 py-2 px-3 rounded bg-green-300 text-white px-3">Resetar
+            Mensaje</button>
+        <div class="h-10 mt-4 mx-auto border-2 rounded border-green-500 text-center" role="alert">{{message}}</div>
+    </section>
 
-<section class="bg-white rounded shadow p-10 flex mt-5 border-2 border-blue-500">
-    <div class="my-5 border-green-300">
-        <label for="inputTexto">Escribe algo:</label>
-        <input type="text" class="form-control" id="inputTexto" (input)="actualizarTexto($event)" />
-    </div>
-    <div class="m-5 border-2 border-red-400">
-        <label for="replicarTexto">texto replicado: </label>
-        <input readonly type="text" class="form-control" id="inputTexto2" [value]="texto" />
-    </div>
-</section>
+    <section class="bg-white rounded shadow p-10 flex mt-5 border-2 border-blue-500">
+        <div class="my-5 border-green-300">
+            <label for="inputTexto">Escribe algo:</label>
+            <input type="text" class="form-control" id="inputTexto" (input)="actualizarTexto($event)" />
+        </div>
+        <div class="m-5 border-2 border-red-400">
+            <label for="replicarTexto">texto replicado: </label>
+            <input readonly type="text" class="form-control" id="inputTexto2" [value]="texto" />
+        </div>
+    </section>
 
-<!-- two way biding -->
-<section class="bg-white rounded shadow p-10 flex-col mt-5 border-2 border-gray-700">
-    <h1>Two way biding</h1>
-    <div class="my-5 border-2 border-green-600 w-full flex-col">
-        <label for="inputTexto">Mensaje:</label>
-        <input class="w-full" type="text"  id="inputTexto" [(ngModel)]="saludo" autocomplete="off" />
-    </div>
-   <p class="mt-5 border-2 border-red-400">{{saludo}}</p>
-</section>
-<!-- calculadora -->
-<section class="bg-white rounded shadow p-10 flex-col mt-5 border-2 border-gray-700">
-    <h1>Aplicación Calculadora</h1>
+    <!-- two way biding -->
+    <section class="bg-white rounded shadow p-10 flex-col mt-5 border-2 border-gray-700">
+        <h1>Two way biding</h1>
+        <div class="my-5 border-2 border-green-600 w-full flex-col">
+            <label for="inputTexto">Mensaje:</label>
+            <input class="w-full" type="text" id="inputTexto" [(ngModel)]="saludo" autocomplete="off" />
+        </div>
+        <p class="mt-5 border-2 border-red-400">{{saludo}}</p>
+    </section>
+    <!-- calculadora -->
+    <section class="bg-white rounded shadow p-10 flex-col mt-5 border-2 border-gray-700">
+        <h1>Aplicación Calculadora</h1>
 
-    <div class="my-5 border-2 border-green-600 w-full flex-col">
-        <label for="operandoA">Operando A:</label>
-        <input class="w-full" type="number"  id="operandoA" [(ngModel)]="operandoA" />
-    </div>
-    <div>
-        <label for="operandoB">Operando B:</label>
-        <input class="w-full" type="number"  id="operandoB" [(ngModel)]="operandoB" />
-    </div>
-    <button class="hover:bg-blue-600 mr-3 my-5 py-2 px-3 rounded bg-blue-400 text-white px-3" (click)="sumar()">Sumar</button>
-    <p class="mt-5 border-2 border-red-400">Resultado es: {{resultado}}</p>
-   
-</section>
+        <div class="my-5 border-2 border-green-600 w-full flex-col">
+            <label for="operandoA">Operando A:</label>
+            <input class="w-full" type="number" id="operandoA" [(ngModel)]="operandoA" />
+        </div>
+        <div>
+            <label for="operandoB">Operando B:</label>
+            <input class="w-full" type="number" id="operandoB" [(ngModel)]="operandoB" />
+        </div>
+        <button class="hover:bg-blue-600 mr-3 my-5 py-2 px-3 rounded bg-blue-400 text-white px-3"
+            (click)="sumar()">Sumar</button>
+        <p class="mt-5 border-2 border-red-400">Resultado es: {{resultado}}</p>
+    </section>
+    <!-- refencia local -->
+    <section class="bg-white rounded shadow p-10 flex-col mt-5 border-2 border-gray-700">
+        <h1>Agregar tarea</h1>
+        <div>
+            <input type="text" #tareaInput placeholder="Escribe una tarea...">
+            <button class="hover:bg-blue-600 mr-3 my-5 py-2 px-3 rounded bg-blue-400 text-white px-3"
+             (click)="agregarTarea(tareaInput.value)">Agregar</button>
+            <ul>
+                @if(tarea) {
+                
+            }
+        </ul>
+        </div>
+
+    </section>
+
+</div>

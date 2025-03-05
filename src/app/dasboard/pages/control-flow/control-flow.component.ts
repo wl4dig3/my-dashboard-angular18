@@ -9,12 +9,14 @@ type Grade = 'A' | 'B' | 'C' | 'D';
 })
 export default class ControlFlowComponent {
 
+// public showContent: boolean = false;
 public showContent = signal(false);
 public grade = signal<Grade>('A');
 public frameworks = signal(['Angular', 'React', 'Vue', 'Querty', 'Ember']);
 public frameworks2 = signal(['Svelte']);
 
 public toggleContent() {
+  // this.showContent = !this.showContent;
   this.showContent.update(value => !value);
 };
 }

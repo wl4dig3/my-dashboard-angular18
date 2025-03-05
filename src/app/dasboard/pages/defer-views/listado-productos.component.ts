@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListadoProductosComponent {
   saludo: string = 'Un saludo inicial';
-
+  tarea: string = '';
   texto: string = '';
 
   // datos para la calculadora
@@ -18,8 +18,15 @@ export class ListadoProductosComponent {
   operandoB: number = 0;
   sumar() { 
     this.resultado = this.operandoA + this.operandoB;
-    console.log('RESULTADO::',this.resultado)
+    
   }
+
+  agregarTarea(nuevaTarea: string) {
+    
+    this.tarea = nuevaTarea;
+  }
+
+
   actualizarTexto(evento: Event) {
     const elementoInput = evento.target as HTMLInputElement;
     this.texto = elementoInput.value;
