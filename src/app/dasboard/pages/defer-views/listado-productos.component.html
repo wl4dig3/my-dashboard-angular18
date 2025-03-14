@@ -1,4 +1,5 @@
 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+    <h1>{{mensajeHijo}}</h1>
     <section class="bg-white rounded shadow p-10">
         <p class="text-center mb-5 fw-bold amarillo">{{getMostrarTitulo}}</p>
         <ul>
@@ -63,11 +64,12 @@
         <div>
             <input type="text" #tareaInput placeholder="Escribe una tarea...">
             <button class="hover:bg-blue-600 mr-3 my-5 py-2 px-3 rounded bg-blue-400 text-white px-3"
-             (click)="agregarTarea(tareaInput.value)">Agregar</button>
+             (click)="agregarTarea(tareaInput.value); tareaInput.value = ''">Agregar</button>
             <ul>
-                @if(tarea) {
-                
-            }
+             @for(tarea of tareas; track $index; let i= $index) {
+                 <li>{{i+1}}.- {{tarea}}</li>
+                 
+             }
         </ul>
         </div>
 

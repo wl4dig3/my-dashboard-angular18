@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,8 +9,10 @@ import { FormsModule } from '@angular/forms';
 })
 export class ListadoProductosComponent {
   saludo: string = 'Un saludo inicial';
-  tarea: string = '';
+  tareas: string[] = ['pollito', 'perro', 'gato'];
   texto: string = '';
+
+@Input() mensajeHijo!: string;
 
   // datos para la calculadora
   resultado: number = 0;
@@ -23,7 +25,9 @@ export class ListadoProductosComponent {
 
   agregarTarea(nuevaTarea: string) {
     
-    this.tarea = nuevaTarea;
+    if (nuevaTarea.trim() !== '') {
+      this.tareas.push(nuevaTarea);
+    }
   }
 
 
